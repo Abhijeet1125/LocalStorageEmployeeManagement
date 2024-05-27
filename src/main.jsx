@@ -5,6 +5,8 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Employee from './components/Employee';
+import AddEmployee from './components/AddEmployee';
+import { EmployeeProvider } from './contexts';
 
 
 
@@ -13,8 +15,9 @@ const router = createBrowserRouter (
   createRoutesFromElements(
     <Route path='/' >
       <Route path='' element={<Login/>}/>
-      <Route path='/dashboard' element = { <Dashboard/>} />
-      <Route path='/employees' element={<Employee/>}></Route>
+      <Route path='dashboard' element = { <Dashboard/>} />
+      <Route path='employee' element={<EmployeeProvider> <Employee/>  </EmployeeProvider> }></Route>
+      <Route path='add' element = { <EmployeeProvider> <AddEmployee/> </EmployeeProvider> }> </Route>
     </Route>
   )
 )

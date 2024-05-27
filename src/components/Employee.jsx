@@ -1,25 +1,33 @@
-import { EmployeeProvider, useEmployee } from "../contexts"
-import Header from "./Header"
+import React from 'react';
+import { EmployeeProvider, useEmployee} from '../contexts';
+import Header from './Header';
+import { useNavigate } from 'react-router-dom';
 
 function Employee() {
+  const navigate = useNavigate();
+  const { employeeList, removeEmployee } = useEmployee();
+    console.log  ( employeeList)
 
-    const { EmployeeList, addEmployee, RemoveEmployee } = useEmployee()
-
+    const handleDelete = ( id )=> {
+        removeEmployee (id)
+    }
 
     return (
-        <EmployeeProvider value={{ EmployeeList, addEmployee, RemoveEmployee }}>
+        <EmployeeProvider >
             <Header></Header>
             <div className="container mx-auto px-4 md:px-6 lg:px-8 py-4">
                 <div className="bg-white shadow-md rounded-lg p-6 mb-6">
                     <h1 className="text-2xl font-bold text-gray-800 mb-4">Employee List</h1>
-
-
-
-
                     <div className="container max-w-4xl px-4 mx-auto sm:px-8">
                         <div className="py-8">
                             <div className="px-4 py-4 -mx-4 overflow-x-auto sm:-mx-8 sm:px-8">
                                 <div className="inline-block min-w-full overflow-hidden rounded-lg shadow">
+                                    <div className="flex justify-end mb-4">
+                                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                        onClick={()=> navigate("/add")}>
+                                            Add Employee
+                                        </button>
+                                    </div>
                                     <table className="min-w-full leading-normal">
                                         <thead>
                                             <tr>
@@ -42,14 +50,14 @@ function Employee() {
                                                     Edit
                                                 </th>
                                                 <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                                                    Delete
+                                                    Remove
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                             {
-                                                EmployeeList.map((employee) => (
+                                                employeeList.map((employee) => (
                                                     <tr key={employee.id}>
                                                         <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                                             <div className="flex items-center">
@@ -94,7 +102,9 @@ function Employee() {
                                                                 <span aria-hidden="true" className="absolute inset-0 bg-green-200 rounded-full opacity-50">
                                                                 </span>
                                                                 <span className="relative">
-                                                                    <button>Delete</button>
+                                                                    <button onClick={
+                                                                        () => handleDelete(employee.id)
+                                                                    }>Remove</button>
                                                                 </span>
                                                             </span>
                                                         </td>
@@ -113,6 +123,7 @@ function Employee() {
 
                 </div>
             </div>
-        </EmployeeProvider>)
+        </EmployeeProvider>
+    )
 }
 export default Employee
