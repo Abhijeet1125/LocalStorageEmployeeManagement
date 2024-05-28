@@ -76,7 +76,7 @@ export const EmployeeProvider = ({ children }) => {
   };
 
   return (
-    <EmployeeContext.Provider value={{ employeeList, addEmploye, removeEmployee }}>
+    <EmployeeContext.Provider value={{ employeeList, setEmployeeList, addEmploye, removeEmployee }}>
       {children}
     </EmployeeContext.Provider>
   );

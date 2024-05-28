@@ -3,14 +3,20 @@ import { EmployeeProvider, useEmployee} from '../contexts';
 import Header from './Header';
 import { useNavigate } from 'react-router-dom';
 
+
 function Employee() {
   const navigate = useNavigate();
   const { employeeList, removeEmployee } = useEmployee();
-    console.log  ( employeeList)
 
     const handleDelete = ( id )=> {
         removeEmployee (id)
     }
+
+    const handleedit = ( id ) => {
+        navigate(`../edit/${id}`)
+    }
+
+    console.log ( employeeList )
 
     return (
         <EmployeeProvider >
@@ -93,7 +99,7 @@ function Employee() {
                                                                 <span aria-hidden="true" className="absolute inset-0 bg-green-200 rounded-full opacity-50">
                                                                 </span>
                                                                 <span className="relative">
-                                                                    <button>Edit</button>
+                                                                    <button onClick={()=> handleedit ( employee.id)}>Edit</button>
                                                                 </span>
                                                             </span>
                                                         </td>

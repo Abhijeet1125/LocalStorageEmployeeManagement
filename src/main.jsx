@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import Employee from './components/Employee';
 import AddEmployee from './components/AddEmployee';
 import { EmployeeProvider } from './contexts';
+import EditEmployee from './components/EditEmployee';
 
 
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter (
       <Route path='dashboard' element = { <Dashboard/>} />
       <Route path='employee' element={<EmployeeProvider> <Employee/>  </EmployeeProvider> }></Route>
       <Route path='add' element = { <EmployeeProvider> <AddEmployee/> </EmployeeProvider> }> </Route>
+      <Route path='edit/:userid' element = { <EmployeeProvider> <EditEmployee/> </EmployeeProvider> } ></Route>
     </Route>
   )
 )

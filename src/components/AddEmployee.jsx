@@ -16,6 +16,8 @@ function AddEmployee() {
             salary : event.target.elements.salary.value,
             experience : event.target.elements.experience.value,
             workingLocation : event.target.elements.location.value,
+            username : event.target.elements.username.value,
+            password : event.target.elements.password.value,
         }
         addEmploye (emp )
         console.log ( employeeList)
@@ -39,6 +41,16 @@ function AddEmployee() {
                             <div className="w-full">
                                 <div className="relative">
                                     <input type="text" name="name" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Name" />
+                                </div>
+                            </div>
+                            <div className="w-full">
+                                <div className="relative">
+                                    <input type="text" name="username" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Username" />
+                                </div>
+                            </div>
+                            <div className="w-full">
+                                <div className="relative">
+                                    <input type="text" name="password" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Password" />
                                 </div>
                             </div>
                             <div className="w-full">
